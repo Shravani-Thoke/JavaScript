@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan</title>
+    <style>
+        #fan_box{
+            width: 300px;
+            height: 300px;
+            background-image: url('fan-blades-png.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin:50px auto;
+            animation-name: fan;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-play-state: paused;
+        }
+
+        @keyframes fan {
+            0%{
+                transform: rotateZ(0deg);
+            }
+            100%{
+                transform: rotateZ(359deg);
+            }
+        }
+        .buttongroup > button:first-child{
+            border: none;
+            background-image: url('onoff-button.png');
+            background-color: transparent;
+            width:100px;
+            padding: 20px 10px;
+            background-repeat: no-repeat;
+            background-position: 0px -50px;
+            background-size: 100px 100px;
+        }
+
+        button[onclick='startFan(1)'],button[onclick='startFan(2)'],button[onclick='startFan(3)']{
+            width: 50px;
+            height: 50px;
+            border: none;
+            background-color: grey;
+            color:white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 50px;
+        }
+    </style>
+    <script>
+        //querySelector() can take id / class / custom arguments as input
+        //getElementById() can only take id as input
+        function startFan(speed){
+            if(speed==0){
+                document.querySelector('[onclick="startFan(0)"]').style.backgroundPosition='0px -50px';
+                document.querySelector('[data-fan="myFan"]').style.animationPlayState='paused';
+            }
+            else if(speed==1){
+                document.querySelector('[onclick="startFan(0)"]').style.backgroundPosition='0px -10px';
+                document.querySelector('[onclick="startFan(1)"]').style.backgroundColor='mediumseagreen';
+                document.querySelector('[onclick="startFan(2)"]').style.backgroundColor='grey';
+                document.querySelector('[onclick="startFan(3)"]').style.backgroundColor='grey';
+                document.querySelector('.FanBox').style.animationPlayState='running';
+                document.querySelector('.FanBox').style.animationDuration='1s';
+
+            }
+            else if(speed==2){
+                document.querySelector('[onclick="startFan(0)"]').style.backgroundPosition='0px -10px';
+                document.querySelector('[onclick="startFan(1)"]').style.backgroundColor='grey';
+                document.querySelector('[onclick="startFan(2)"]').style.backgroundColor='mediumseagreen';
+                document.querySelector('[onclick="startFan(3)"]').style.backgroundColor='grey';
+                document.querySelector('#fan_box').style.animationPlayState='running';
+                document.querySelector('#fan_box').style.animationDuration='0.1s';
+
+            }
+            else{
+                document.querySelector('[onclick="startFan(0)"]').style.backgroundPosition='0px -10px';
+                document.querySelector('[onclick="startFan(1)"]').style.backgroundColor='grey';
+                document.querySelector('[onclick="startFan(2)"]').style.backgroundColor='grey';
+                document.querySelector('[onclick="startFan(3)"]').style.backgroundColor='mediumseagreen';
+                document.getElementById('fan_box').style.animationPlayState='running';
+                document.getElementById('fan_box').style.animationDuration='0.5s';
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--<element data-*="somevalue">    -Custom attribute-->
+    <div id="fan_box" class="FanBox" data-fan="myFan">
+
+    </div>
+    <div style="text-align: center;" class="buttongroup">
+        <button onclick="startFan(0)"></button>
+        <button onclick="startFan(1)">1</button>
+        <button onclick="startFan(2)">2</button>
+        <button onclick="startFan(3)">3</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+    <script>
+        function greet(m)
+        {
+            console.log("Hello "+m);
+        }
+        var students=['Shravani','Prajakta','Sejal','Abrar','Rutuja'];
+        for(let i=0;i<students.length;i++)
+        {
+            greet(students[i]);
+        }
+        
+        function greet2(name)
+        {
+            for(let i=0;i<name.length;i++)
+            {
+                console.log("How are you "+name[i]);
+            }
+        }
+        greet2(students);
+
+        console.log(students[-1]);//undefined
+        console.log(students[5]);//undefined
+
+        //Spread Operator
+        //The JavaScript spread operator (...) allows us to quickly copy all or part of an existing array or object into another array or object.
+        var a=[1,2,3];
+        console.log(a);
+        var b=[...a,4,5,6];
+        console.log(b);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

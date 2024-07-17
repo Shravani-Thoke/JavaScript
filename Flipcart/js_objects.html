@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var mySubjects={
+            subjects:[{name:'HTML'},{name:'CSS'},{name:'JavaScript'}]
+        };
+        var jsObj={
+            name:'Shravani',
+            surname:"Thoke",
+            age:18,
+            address:"Pune",
+            course:'Full-Stack',
+            getFullName:function(){
+                return this.name+' '+this.surname;
+            },
+            getAddress:function(){
+                console.log("Address = "+this.address);
+            },
+            getSubjects:function(){
+                return mySubjects;
+            }
+            
+        }
+
+        console.log(jsObj.getFullName());
+        jsObj.getAddress();
+        var ss=jsObj.getSubjects();
+        ss.subjects.forEach(function(currentElement,Index,arr){
+            console.log(currentElement.name);
+        });
+
+        console.log("before delete:"+jsObj.course);
+        delete jsObj.course;
+        console.log("after delete:"+jsObj.course);
+
+    </script>
+</body>
+</html>

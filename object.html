@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objects</title>
+    <script>
+        var student={
+            Name:"Shravani",
+            Surname:"Thoke",
+            Contact:"1234567890",
+            Address:"Pimpri-Chinchwad",
+            Qualification:[ 
+            {
+                Education:"SSC",
+                Institute:"D.I.C's English Medium School",
+                Result:95.6,
+                Year:2021
+            },
+            {
+                Education:"Diploma in Computer Engineering",
+                Institute:"Government Polytechnic Pune",
+                Result:86.93,
+                Year:2024
+            }
+        ],
+        Skills:{
+            Technical_skills:["HTML","CSS","JAVASCRIPT","C","C++","JAVA","PYTHON"],
+            Office_suite:["Word","Excel","Powerpoint"],
+            Languages:["English","Hindi","Marathi","German"]
+        },
+        Projects:["Movie Recommender","Lost n found","Air Canvas","Course Management"]
+        }
+
+        console.log("*****Student Details*****");
+        console.log(student.Name,student.Surname);
+        console.log(student.Contact);
+        console.log(student.Address);
+        
+        for(let i=0;i<student.Qualification.length;i++)
+        {
+           console.log(student.Qualification[i].Education);
+           console.log(student.Qualification[i].Institute);
+           console.log(student.Qualification[i].Result);
+           console.log(student.Qualification[i].Year);
+        }
+
+        for(let i=0;i<student.Skills.Technical_skills.length;i++)
+        console.log(student.Skills.Technical_skills[i]);
+
+        for(let i=0;i<student.Skills.Languages.length;i++)
+        console.log(student.Skills.Languages[i]);
+
+        for(var i=0;i<student.Skills.Office_suite.length;i++)
+        console.log(student.Skills.Office_suite[i]);
+
+        for(var i=0;i<student.Projects.length;i++)
+        console.log(student.Projects[i]);
+
+        for(let x in student)
+        {
+            console.log(x+"     "+student[x]);
+        }
+
+        for(let s in student.Skills)
+        {
+            console.log(student[s])
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

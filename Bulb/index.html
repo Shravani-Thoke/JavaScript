@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb</title>
+    <style>
+        body{
+            background-color: black;
+      
+        }
+        .box{
+            display: block;
+            margin: 30px auto;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function clickme(state){
+            if(state=='on')
+            {
+                document.body.style.backgroundColor='goldenrod';
+                document.getElementById("myImg").setAttribute("src","bulb2.png");
+                
+            }
+            else{
+                document.body.style.backgroundColor='black';
+                document.getElementById("myImg").setAttribute("src","bulb1.png");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <img id="myImg" width="200" src="bulb1.png"><br>
+        <button onclick="clickme('on')">ON</button>
+        <button onclick="clickme('off')">OFF</button>
+    </div>
+</body>
+</html>

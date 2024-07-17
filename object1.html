@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object1</title>
+    <script>
+        //JS Object with properties an function
+        var x={
+            Name:"Shravani",
+            Surname:"Thoke",
+
+            //Two ways of defining a function inside object
+            display:function(msg){
+                console.log(this.Name,this.Surname+msg)
+            },
+            comman_msg:()=>{
+                console.log("this is a fat arrow function")
+            }
+        }
+        x.display(" How are you?");
+        x.comman_msg();
+
+        //JS Object
+        var info={
+            teacher:"Korde",
+            subject:"OS"
+        }
+
+        for(let x in info)  //For-in loop to iterate over objects
+        {
+            console.log(x+"     "+info[x]);
+        }
+
+        //array of objects [{},{}]
+        var info1=[
+        {
+            teacher:"Korde",
+            subject:"OS"
+        },
+        {
+            teacher:"Ingavale",
+            subject:"OOPs"
+        }
+    ];
+
+    //for-each loop to iterate over arrays
+
+    info1.forEach(element => {
+        console.log(element)
+    });
+
+    //for-of loop to iterate over arrays
+    for(let x of info1)
+    {
+        console.log(x)
+    }
+
+    
+    var arr=[1,2,3,4,5];
+    for(i of arr)
+    {
+        console.log(arr[i]);
+    }
+
+    //for each loop is more efficient in terms of simple array
+    arr.forEach(element => {
+        console.log(element);
+    });
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

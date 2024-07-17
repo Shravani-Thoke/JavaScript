@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script>
+        /*write a JS program to calculate area of triangle
+        write a program to calculate simple interest
+        write a program to calculate area of circle
+        write a program to calculate volume of sphere
+        write a program to calculate volume of cylinder*/
+
+        
+        const pi=3.14;
+        function areaofcircle(){
+            let r=document.querySelector('[name="radius"]').value;
+            let area=pi*r*r;
+            alert("Area of circle="+area);
+        }
+
+        function simpleinterest(){
+            let p=document.querySelector('[name="p"]').value;
+            let n=document.querySelector('[name="n"]').value;
+            let r=document.querySelector('[name="r"]').value;
+            let SI=p*n*r/100;
+            alert("Simple Interest="+SI);
+        }
+
+        function areaoftriangle(){
+            let b=document.querySelector('[name="base"]').value;
+            let h=document.querySelector('[name="height"]').value;
+            let area=0.5*b*h;
+            alert("Area of triangle="+area);
+        }
+
+        function volumeofsphere(){
+            let r=document.querySelector('[name="radius1"]').value;
+            let volume=4/3*r*r*r;
+            alert("volume of sphere="+volume);
+        }
+
+        function volumeofcylinder(){
+            let r=document.querySelector('[name="radius2"]').value;
+            let h=document.querySelector('[name="height1"]').value;
+            let volume=pi*r*r*h;
+            alert("Volume of cylinder="+volume);
+        }        
+    </script>
+</head>
+<body>
+    <h1>Area of circle</h1>
+    <form onsubmit="areaofcircle()">
+        <input type="text" name="radius" placeholder="Enter radius">
+        <button type="submit">Submit</button>
+    </form>
+    
+
+    <h1>Simple Interest</h1>
+    <form onsubmit="simpleinterest()">
+        <input type="text" name="p" placeholder="Enter Principal">
+        <input type="text" name="n" placeholder="Enter Time">
+        <input type="text" name="r" placeholder="Enter Rate of Interest">
+        <button type="submit">Submit</button>
+    </form>
+    
+
+    <h1>Area of triangle</h1>
+    <form onsubmit="areaoftriangle()">
+        <input type="text" name="base" placeholder="Enter Base">
+        <input type="text" name="height" placeholder="Enter Height">
+        <button type="submit">Submit</button>
+    </form>
+    
+
+    <h1>Volume of sphere</h1>
+    <form onsubmit="volumeofsphere()">
+        <input type="text" name="radius1" placeholder="Enter radius">
+        <button type="submit">Submit</button>
+    </form>
+    
+
+    <h1>Volume of cylinder</h1>
+    <form onsubmit="volumeofcylinder()">
+        <input type="text" name="radius2" placeholder="Enter radius">
+        <input type="text" name="height1" placeholder="Enter height">
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>

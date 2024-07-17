@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Layout Using JS</title>
+</head>
+<body>
+    
+    <script>
+       
+        //      Header
+
+        //Create a HTML element
+        var h=document.createElement('header');
+        h.innerHTML='Header';
+        
+        //Put this element in HTML body using JS
+        document.body.appendChild(h);
+        document.querySelector('header').setAttribute('class','a_header');
+        
+        var header=document.getElementsByClassName('a_header');
+        console.log(header);
+
+        //Add CSS
+        document.body.style.margin='0px';
+        header[0].style.width='100%';
+        header[0].style.height='70px';
+        header[0].style.border='5px solid #ddd';
+        header[0].style.color='green';
+        header[0].style.textAlign='center';
+        header[0].style.lineHeight='70px';
+        header[0].style.fontSize='3em';
+        header[0].style.margin='2px';
+
+        //Navigation Bar
+        var n=document.createElement('nav');
+        n.innerHTML='Nav Bar'
+        document.body.appendChild(n);
+        var nav=document.querySelector('nav');
+        nav.style.width='100%';
+        nav.style.height='70px';
+        nav.style.border='5px solid #ddd';
+        nav.style.color='green';
+        nav.style.textAlign='center';
+        nav.style.lineHeight='70px';
+        nav.style.fontSize='3em';
+        nav.style.margin='2px';
+
+        //Aside1 Section Aside2
+        var a1=document.createElement('aside');
+        a1.innerHTML='Aside 1';
+        var s=document.createElement('section');
+        s.innerHTML='Section';
+        var a2=document.createElement('aside');
+        a2.innerHTML='Aside 2';
+
+        document.body.appendChild(a1);
+        document.body.appendChild(s);
+        document.body.appendChild(a2);
+
+        var aside=document.querySelectorAll('aside');
+        aside.forEach(function(currentValue, index, aside)
+        {
+            aside[index].style.display='inline-block'
+            aside[index].style.width='21.2%';
+            aside[index].style.height='286px';
+            aside[index].style.border='5px solid #ddd';
+            aside[index].style.color='green';
+            aside[index].style.textAlign='center';
+            aside[index].style.lineHeight='286px';
+            aside[index].style.fontSize='3em';
+            aside[index].style.margin='2px';
+        })
+
+
+        var section=document.querySelector('section');
+        section.style.display='inline-block';
+        section.style.width='54.2%';
+        section.style.height='286px';
+        section.style.border='5px solid #ddd';
+        section.style.color='green';
+        section.style.textAlign='center';
+        section.style.lineHeight='286px';
+        section.style.fontSize='3em';
+        section.style.margin='2px';
+        
+        //Footer
+        var f= document.createElement('footer');
+        f.innerHTML='Footer';
+        document.body.appendChild(f);
+        document.querySelector('footer').setAttribute('class','a_footer');
+        var footer=document.getElementsByTagName('footer');
+        footer[0].style.width='100%';
+        footer[0].style.height='50px';
+        footer[0].style.border='5px solid #ddd';
+        footer[0].style.color='green';
+        footer[0].style.textAlign='center';
+        footer[0].style.lineHeight='50px';
+        footer[0].style.fontSize='3em';
+        footer[0].style.margin='2px';
+
+
+
+    </script>
+</body>
+</html>

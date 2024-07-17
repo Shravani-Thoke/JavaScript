@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    <script>
+        /*
+                    function name(parameter1, parameter2, parameter3) {
+                        // code to be executed
+                    }
+        */
+        //*****Assignment 1******
+
+        function addition(x,y)
+        {
+            console.log("Addition = ",x+y);
+        }
+        function subtraction(x,y)
+        {
+            console.log("Subtraction = ",x-y);
+        }
+        function multiplication(x,y)
+        {
+            console.log("Multiplication = ",x*y);
+        }
+        function division(x,y)
+        {
+            console.log("Division = ",x/y);
+        }
+
+        addition(100,20);
+        subtraction(100,20);
+        multiplication(100,20);
+        division(100,20);
+
+        //****Assignment 2*****
+
+        function name(fname,lname)//formal argument
+        {
+            console.log("Hello",fname,lname,"!!! How are you?");
+        }
+
+        name("Shravani","Thoke");//actual argument
+
+        //Nested Function / Function as a argument
+        function sum(x,y)
+        {
+            return x+y;
+        }
+        let result=sum(10,sum(10,sum(10,10)));
+        console.log(result)
+
+        function a()
+        {
+            return 10;
+        }
+        function b()
+        {
+            return 20;
+        }
+        function c(x,y)
+        {
+            console.log(x+y);
+        }
+        c(a(),b())
+
+
+        </script>
+
+</body>
+</html>

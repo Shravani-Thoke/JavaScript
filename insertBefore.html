@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insertBefore</title>
+</head>
+<body>
+    <h1>Student names</h1>
+    <ul id="items">
+        <li>Shravani</li>
+        <li>Prajakta</li>
+    </ul>
+    <button onclick="addNewStudent()">Add new student</button>
+
+    <script>
+        var students=[];
+        function addNewStudent(){
+            
+            var sn=prompt("Enter the name of student:");
+            
+            var isAvailable=false;
+            
+            isAvailable=students.find(function(currentElement,Index,arr){
+                return (currentElement==sn)?true:false;
+            });
+            
+            if (isAvailable){
+                alert("Student name is already available in list");
+            }
+            else{
+                
+                students.push(sn);
+                
+                console.log(sn);
+    
+                var li=document.createElement('li');
+                li.innerHTML=sn;
+                
+                var x=document.getElementById('items');
+                console.log(x.childNodes);
+                // x.insertBefore(li,x.childNodes[1]);
+                
+                x.insertBefore(li,document.querySelector('ul > li:nth-child(1)'));
+                //li.insertBefore(newnode,existingnode)
+            }
+            console.log(students);
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+ DOM Selectors
+        1.getElementById('id');
+        2.getElementsByClassName('class') ...returns HTMLCollection
+        3.getElementsByTagName('tagname') ...returns HTMLCollection
+        4.querySelector('#id'/'.class'/'tagname');
+        5.querySelectorAll();    ..returns nodelist
+
+        An HTMLCollection is a collection of document elements.
+
+        A NodeList is a collection of document nodes (element nodes, attribute nodes, and text nodes).
+
+        HTMLCollection items can be accessed by their name, id, or index number.
+
+        NodeList items can only be accessed by their index number.
+
+        An HTMLCollection is always a live collection. Example: If you add a <li> element to a list in the DOM, the list in the HTMLCollection will also change.
+
+        A NodeList is most often a static collection. Example: If you add a <li> element to a list in the DOM, the list in NodeList will not change.
+
+        ****classList****
+        The classList property returns the CSS classnames of an element.
+        The classList property returns a DOMTokenList.
+        A list of the class names of an element.

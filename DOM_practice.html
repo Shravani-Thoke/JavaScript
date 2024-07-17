@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var ul = document.createElement('ul');
+        console.log(ul);
+
+        for (let i = 0; i < 10; i++) {
+            var li = document.createElement('li');
+            // li.innerHTML='Element '+(i+1);
+            var tn = document.createTextNode('Element ' + (i + 1));
+            li.appendChild(tn);
+            li.setAttribute('class', 'list com');
+            li.classList.add('comman');
+            console.log(li);
+            ul.appendChild(li);
+
+        }
+        document.body.appendChild(ul);
+
+        var comman = document.getElementsByClassName('comman');
+        console.log(comman);
+        console.log(typeof comman);
+
+        //use for in loop for objects
+        for (var p in comman) {
+            console.log(p);
+            console.log(comman[p]);
+            if (!isNaN(p) && ((p < 3) || (p > 6)))
+                comman[p].style.color = 'blue';
+        }
+
+        var object={
+            "name":'Shravani',
+            'surname':'Thoke',
+            mission:"To learn new skills daily",
+            fullname : function(){
+                return this.name+this.surname;
+            },
+            setMission:function(){
+                return "Mission:"+this.mission;
+            }
+        };
+
+        //3 ways of accessing object
+        
+        //1. object.property
+        console.log(object.name);
+
+        //2. object[property]
+        console.log(object["surname"]);
+
+        //3. object[expression]
+        var m='mission';
+        console.log(object[m]);
+
+        console.log(object.fullname());
+        console.log(object.setMission());
+
+    </script>
+</body>
+
+</html>

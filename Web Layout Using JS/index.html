@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var link=document.createElement('link');
+        link.setAttribute('rel','stylesheet');
+        link.setAttribute('href','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+        link.setAttribute('integrity','sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==');
+        link.setAttribute('crossorigin','anonymous');
+        link.setAttribute('referrerpolicy','referrer');
+        document.head.appendChild(link);
+
+        var icon=document.createElement('i');
+        icon.setAttribute('class','fa-solid ');
+        icon.classList.add('fa-font-awesome')
+        document.body.appendChild(icon);
+
+
+        var header=document.createElement('header');
+        header.innerHTML='Header';
+        header.setAttribute('class','a_header');
+        document.body.appendChild(header)
+
+        var main=document.createElement('div');
+        main.innerHTML='Main Body';
+        main.setAttribute('class','main');
+        document.body.appendChild(main);
+        var maincss=document.getElementsByClassName('main');
+        console.log(maincss);
+        maincss[0].style.color='blue';
+        
+        var box=document.createElement('div');
+        box.innerHTML='BOX';
+        box.setAttribute('class','main');
+        document.body.appendChild(box);
+        //maincss=document.getElementsByClassName('main');
+        console.log(maincss);
+        maincss[1].style.color='red';
+        maincss[1].style.border='1px solid black';
+        
+        // maincss.forEach(function(currentValue, index, maincss){
+        //     maincss[index].style.fontWeight='bold';           
+        // })
+
+        var footer=document.createElement('footer');
+        footer.innerHTML='Footer';
+        footer.setAttribute('class','a_footer');
+        document.body.appendChild(footer);
+
+        var button=document.createElement('button');
+        button.innerHTML='Click me!';
+        var fe=document.querySelector('footer');
+        fe.appendChild(button);
+
+
+        var be=document.querySelector('button');
+        be.style.display='block';
+        //Anonymous function
+        be.addEventListener('click',function(){
+            alert("you clicked me!!");
+            document.querySelector('header').style.color='green';
+            icon.style.color="blueviolet";
+            icon.style.transform="scale(2,2)";
+
+        })
+    </script>
+</body>
+</html>

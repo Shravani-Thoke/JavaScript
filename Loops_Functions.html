@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops_Functions</title>
+    <script>
+        // 1. Write a program to print marks of student in an object using for in loop
+         var marks={'Shravani':75,
+                    'Prajakta':80,
+                    "sejal":90
+                };
+
+        for(m in marks)
+        {
+            console.log(m+" got "+marks[m]+" marks");
+        }
+
+       
+        // 2. Print "try again" untill user enters age above 18
+        var i=prompt("enter valid age")
+        while(i<18)
+        {
+            console.log("try again");
+            i=prompt("Enter again");
+        }
+        console.log("valid age");
+
+        //3.Write a function to get mean of 5 numbers
+        function mean(arr)
+        {
+            let sum=0;
+            for(let i=0;i<arr.length;i++)
+            {
+                sum+=arr[i];
+            }
+            return sum/arr.length;
+        }
+        
+        var arr=[1,2,3,4,5];
+        var ans=mean(arr);
+        console.log(ans)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

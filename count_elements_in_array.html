@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var obj = {};
+
+        var arr = [1, 2, 3, 2, 3, 3, 4, 1, 55, 6, 5, 6, 5, 3, 54, 5, 0, 7, 9, 7];
+
+        arr.forEach(function(currentValue,index,arr) {
+            //If the object obj is empty (has no keys yet), we add the current number as a key and set its value to 1.
+            if(Object.keys(obj).length===0){
+                obj[currentValue]=1
+            }
+            else{
+                for (var key in obj) {
+                    key=parseInt(key);
+                    
+                    if(key===currentValue){
+                        //console.log('ok');
+                        obj[key]=obj[key]+1;
+                    }
+                    else{
+                       // console.log('not ok');
+                    }
+                }
+
+                //After the loop, if the current number from the array is not already a key in the object, we add it and set its value to 1.
+                if(!obj.hasOwnProperty(currentValue)){
+                            obj[currentValue] = 1;
+                }
+                        
+            }
+        });
+        console.log(obj);
+    </script>
+</body>
+
+</html>

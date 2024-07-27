@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function greetings(name,cbfn){
+            console.log('Hello '+name);
+            cbfn(10,20);
+        }
+        greetings('Shravani',function(a,b){
+            console.log("This is callback function");
+            console.log(a+b);
+        });
+
+        function getSomedata(obj,cbfn){
+            console.log("Start");
+            cbfn(obj);
+        }
+        getSomedata({name:'Shravani',course:'fullstack'},function(response){
+            console.log(response);
+            for (const key in response) {
+               console.log(key+"="+response[key]);
+                }
+            }
+        )
+    </script>
+</body>
+</html>

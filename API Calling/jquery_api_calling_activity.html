@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery API CALLING USERS</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+
+    <button class="btn btn-info getActivity">Get Activity</button>
+    <button class="btn btn-warning addActivity" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Activity</button>
+
+    <div class="d-flex justify-content-center spinner invisible">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    
+    <div id="table-container"></div>
+    
+          <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+   -->
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Activity</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form id="myform">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Activity Title</label>
+                  <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Due date</label>
+                  <input name="dueDate" type="date" class="form-control" id="exampleInputPassword1">
+                </div>
+                <select name="is_completed" class="form-select" aria-label="Default select example">
+                    <option selected>Is Completed</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                    
+                  </select>
+                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+              
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary addRecord">Add Record</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+          
+       
+
+    <script>
+
+        var myobj={
+            url:'https://fakerestapi.azurewebsites.net',
+            type:'GET'
+        };
+        var loader=document.querySelector('.spinner');
+        document.querySelector('.getActivity').addEventListener('click',function(){
+
+            $.ajax({
+                ...myobj,
+                url:myobj.url+'/api/v1/Activities',
+                beforeSend:function(xhr){
+                    loader.classList.remove('invisible');
+                },
+                success:function(result,status,xhr){
+                    console.log(result)
+                    var tr=`<table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Due Date</th>
+                                <th scope="col">Completed</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>`;
+
+                    result.forEach(element => {
+                           tr+=`<tr>
+                                    <td>`+element.id+`</td>
+                                    <td>`+element.title+`</td>
+                                    <td>`+element.dueDate+`</td>
+                                    <td>`+element.completed+`</td>
+                                    <td>
+                                        <button class="btn btn-success view_btn" data-bs-toggle="modal" data-bs-target="#exampleModal_view" >View</button>
+                                        <button class="btn btn-primary edit_btn"  data-bs-toggle="modal" data-bs-target="#exampleModal_edit">Edit</button>
+                                        <button class="btn btn-danger del_btn">Delete</button>
+                                    </td>
+                                </tr>`;         
+                    });
+                    tr+=`</tbody>
+                        </table>`;
+
+                    document.querySelector('#table-container').innerHTML=tr;
+
+                },
+                errror:function(xhr,status,error){
+                    console.log(error)
+                },
+                complete:function(xhr,status){
+                    loader.classList.add('invisible');
+                }
+            })
+
+        })
+
+
+        document.querySelector('.addActivity').addEventListener('click',function(e){
+           // alert("ok")
+           //e.preventDefault()
+           document.getElementById('myform').onsubmit=function(e){
+           e.preventDefault()
+           let title=e.target.querySelector('[name="title"]').value
+           let dueDate=e.target.querySelector('[name="dueDate"]').value
+           let is_completed=Boolean(e.target.querySelector('[name="is_completed"]').value)
+          // console.log(title+dueDate+typeof is_completed)
+          var mydata={
+                "id": 0,
+                "title": title,
+                "dueDate": dueDate,
+                "completed": is_completed
+            };
+
+            $.ajax({
+                ...myobj,
+                url:myobj.url+'/api/v1/Activities',
+                type:'POST',
+                dataType:'json',
+                contentType:'application/json',
+                data:JSON.stringify(mydata),
+                success:function(result,status,xhr){
+                    console.log(result)
+                    console.log(result.id)
+                    console.log(result.dueDate)
+                    console.log(result.completed)
+
+                    
+                    Swal.fire({
+                        title: "Record added successfully!",
+                        // text: "You clicked the button!",
+                        icon: "success"
+                    })
+                }
+            })
+           }
+        })
+      
+    </script>
+</body>
+</html>

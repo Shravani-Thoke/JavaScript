@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async-Await Api Call</title>
+</head>
+
+<body>
+    <script>
+
+        function CallApi(){
+            return new Promise(function(resolve,reject){
+
+                //resolve()
+                //reject()
+
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET',"https://fakerestapi.azurewebsites.net/api/v1/Users");
+                xhr.send();
+                xhr.onreadystatechange=function(){
+                    if(this.readyState==4 && this.status==200){
+                        resolve(JSON.parse(this.responseText));
+                        console.log("hello: ",this.responseText)
+                    }
+                    if(this.status!=200){
+                        reject('error');
+                    }
+                }
+            })
+
+            
+        }
+        async function getData() {
+
+            console.log("loading module")
+            //async function always contain await keyword
+            //await PromiseObject
+
+            //You have to use await keyword inside the async function
+
+            //await PromiseObject
+            let data=await CallApi()
+            console.log(data)
+            console.log('data processing')
+        }
+        getData()
+
+    </script>
+</body>
+
+</html>
